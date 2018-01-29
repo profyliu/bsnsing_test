@@ -1,0 +1,55 @@
+File Manifest for ICPSR 27062
+
+Courtney, Mark E., and Gretchen Ruth Cusick. Crime During the Transition to
+Adulthood: How Youth Fare As They Leave Out-of-Home Care in Illinois, Iowa,
+and Wisconsin, 2002-2007. ICPSR27062-v1. Ann Arbor, MI: Inter-university
+Consortium for Political and Social Research [distributor], 2010-12-14.
+http://doi.org/10.3886/ICPSR27062.v1
+
+
+Study-level Documentation
+
+    Filename                            Record  Record    Var.    Date        MD5
+                                        Length  Count     Count   Updated     Checksum
+
+    27062-descriptioncitation.pdf       -       -         -       2017-04-03  -
+
+    27062-related_literature.txt        -       -         -       daily       -
+
+    27062-manifest.txt                  -       -         -       daily       -
+
+
+DS0001 Crime During the Transition to Adulthood: How Youth Fare As They
+Leave Out-of-Home Care in Illinois, Iowa, and Wisconsin, 2002-2007
+
+    Filename                            Record  Record    Var.    Date        MD5
+                                        Length  Count     Count   Updated     Checksum
+
+    27062-0001-Codebook.pdf             -       -         -       2010-12-14  7929aa1826918e4ef6eaf4c8ac9dcab3
+
+    27062-0001-Data.dta                 -       732       85      2010-12-14  7407166cc44de42e7788f47da5fd1f76
+
+    27062-0001-Data.sav                 -       732       85      2010-12-14  b2a58db003543f0609cadf21f8bcb267
+
+    27062-0001-Data.stc                 -       732       85      2010-12-14  d5db7dc14a7a9f2340cb701af99c9bd4
+
+    27062-0001-Data.tsv                 -       732       85      2010-12-14  59f1ee5e4fa711ccd9f028f93d6fe95d
+
+    27062-0001-Data.txt                 198     732       85      2010-12-14  f6eabc4fe9aea48fe17b7df7e648fb90
+
+    27062-0001-Documentation.pdf        -       -         -       2010-12-14  c7bddee28ff27d413d4f357fc1d20651
+
+    27062-0001-Setup.dct                -       -         -       2010-12-14  cc64a0fbae502343a57cd552912dcef4
+
+    27062-0001-Setup.do                 -       -         -       2010-12-14  8bbca280d56d049c9d127bb87a1ab0df
+
+    27062-0001-Setup.sas                -       -         -       2010-12-14  096d9b355f971e7a5bf69d727ea7c132
+
+    27062-0001-Setup.sps                -       -         -       2010-12-14  2ee06f5545be4620effb535d6fb74501
+
+    27062-0001-Supplemental_syntax.do   -       -         -       2010-12-14  60d8eccb254dea1ff82c870170cdf03c
+
+    27062-0001-Supplemental_syntax.sas  -       -         -       2010-12-14  0023df086f8922f02e94a492c7f7ec34
+
+    27062-0001-User_guide.pdf           -       -         -       2010-12-14  2efba1c4e839f065ecae60ac139cdac4
+
