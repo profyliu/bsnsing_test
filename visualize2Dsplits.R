@@ -3,7 +3,7 @@
 library(bsnsing)
 library(rpart)
 library(party)
-source("tests/generate2Ddata.R")
+source("generate2Ddata.R")
 setwd("C:\\Users\\gn0061\\Google Drive\\R_code\\bsnsing_test")
 
 # Generate training set
