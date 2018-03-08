@@ -1,25 +1,36 @@
-library(bsnsing)
-library(rpart)
-library(party)
-library(C50)
+#!/usr/bin/env Rscript
+args = commandArgs(trailingOnly=TRUE)
 
-setwd("C:\\Users\\gn0061\\Google Drive\\R_code\\bsnsing_test")
+library(bsnsing)
+
+if(Sys.info()[1] == 'Windows') {
+  setwd("C:\\Users\\gn0061\\GoogleDrive\\R_code\\bsnsing_test")
+} else setwd("~/bsnsing_test")
+
 
 load(file = "data/all.RData")
 
+ncases <- length(ds.names)
+
+# test if there is at least one argument: if not, return an error
+if (length(args)==0) {
+  warning("All data cases will be run.")
+  args <- c(1,ncases)
+} else if (length(args)==1) {
+  # default output file
+  args[2] = ncases
+}
 
 niter = 5  # number of iterations
 nfolds = 2  # number of CV folds
 
-
-sink(file = "data2/bs_log.txt", append = T)
-
+sink(file = paste0("data2/bs_log_",trimws(args[1]), "_", trimws(args[2]), ".txt"), append = T)
 # header line
 cat(paste(Sys.time()))
 cat("\n")
 cat("case,n,p,nclass,lambda,nseg,opt.model,node.size,stop.prob,max.rules,mean_accu_test,mean_accu_train,nsample,sd_accu_test,sd_accu_train,mean_seconds,sd_seconds \n")
 
-for (ds in 1:1) {
+for (ds in strtoi(args[1]):strtoi(args[2])) {
   
   n <- nrow(eval(parse(text = ds.names[ds])))
   p <- ncol(eval(parse(text = ds.names[ds]))) - 1
@@ -52,8 +63,7 @@ for (ds in 1:1) {
             actual <- eval(parse(text = ds.names[ds]))[test_index, ds.respvar[ds]]
             
             # bsnsing
-            start.time <- Sys.time()
-            model_bs <- bsnsing(as.formula(ds.formula[ds]),
+            systime <- system.time(model_bs <- bsnsing(as.formula(ds.formula[ds]),
                                 data = eval(parse(text = ds.names[ds])),
                                 subset = train_index,
                                 lambda = lambda,
@@ -63,8 +73,8 @@ for (ds in 1:1) {
                                 stop.prob = stop.prob,
                                 max.rules = max.rules,
                                 num2factor = num2factor,
-                                verbose = verbose)
-            time_bs[(rnd - 1)*2 + testfd] <- Sys.time() - start.time
+                                verbose = verbose))
+            time_bs[(rnd - 1)*2 + testfd] <- systime[1]
             pred_bs <- predict(model_bs, newdata, type = 'class')
             if (length(pred_bs) != length(actual)) stop("bsnsing: Predicted and Actual Dimension Mismatch.")
             accu_bs[(rnd - 1)*2 + testfd] <- sum(actual == pred_bs)/length(actual)

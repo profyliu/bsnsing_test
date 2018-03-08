@@ -1,5 +1,9 @@
 library(mlbench)
 
+if(Sys.info()[1] == 'Windows') {
+  setwd("C:\\Users\\gn0061\\GoogleDrive\\R_code\\bsnsing_test")
+} else setwd("~/bsnsing_test")
+
 # Clear the environment
 rm(list = ls())
 
@@ -195,6 +199,9 @@ data(Glass, package = 'mlbench')
 # Load the BreastCancer data
 data(BreastCancer, package = 'mlbench')
 BreastCancer$Id <- NULL
+for (i in 1:9) {
+  BreastCancer[, i] <- as.numeric(BreastCancer[, i])
+}
 
 
 #crime <- read.table('data/27062-0001-Data.tsv', header=TRUE, sep="\t", fileEncoding="windows-1252")
